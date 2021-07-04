@@ -1,0 +1,11 @@
+<div>
+    <div *ngIf="isOk">
+      <app-loader [msg]="msgLoader"
+      [loaderColor]="loaderColor"
+      ></app-loader>
+    </div>
+    <div *ngIf="!isOk">
+      not ok
+    </div>
+  </div>
+  
