@@ -1,0 +1,13 @@
+.retry {
+    margin-top: 5%;
+    padding: 0.5%;
+    text-align: center;
+}
+
+.retry button {
+    background-color: #5050f0;
+    padding: 0.5% 2%;
+    margin-top: 4%;
+    font-size: larger;
+    color:white;
+}

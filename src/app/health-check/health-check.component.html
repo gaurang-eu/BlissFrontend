@@ -1,1 +1,11 @@
-<p>health-check works!</p>
+<div>
+  <div *ngIf="isOk">
+    <app-loader [msg]="msgLoader"></app-loader>
+  </div>
+  <div *ngIf="!isOk">
+    <app-retry [msg]="msgRetry" 
+    [action]="actionRetry"
+    (retryAction) = "retryHealthCheck()"
+    ></app-retry>
+  </div>
+</div>
