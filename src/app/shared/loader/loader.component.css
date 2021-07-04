@@ -1,0 +1,36 @@
+.container{
+    margin:150px;
+    padding:50px;
+    text-align: center;
+  }
+  .msg {
+      margin:0 0 5%;
+      font-size: 20px;
+  }
+  .loader{
+    height:30px;
+    background:#fff;
+    border: 1px solid #aaa;
+    max-width:256px;
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+  }
+  .loader-inner{
+    background-color:#007fff;
+    height:100%;
+    width:80px;
+    -webkit-animation:animloader 2s linear infinite;
+    animation:animloader 2s linear infinite;
+    position:absolute;
+    top:0;
+    left:-80px;
+  }
+  @-webkit-keyframes animloader{
+    from {left:-80px}
+    to {left:256px;}
+  }
+  @keyframes animloader{
+    from {left:-80px}
+    to {left:256px;}
+  }
