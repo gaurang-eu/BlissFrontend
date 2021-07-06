@@ -14,7 +14,7 @@ export class QueApiService {
   constructor(private http: HttpClient, 
     private constants: ConstantsService) { }
 
-  getHelthCheck(): Observable<HttpResponse<{status:number, body: Array<Question>}>> {
+  getQueList(): Observable<HttpResponse<{status:number, body: Array<Question>}>> {
     let apiUrl = environment.api_url;
     let url = apiUrl + this.constants.QUE_LIST_EP;
     return this.http.get<{status:number,body: Array<Question>}>(url, {observe: 'response'}).pipe(retry(1)) ;

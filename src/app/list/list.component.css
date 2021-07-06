@@ -1,0 +1,23 @@
+.que_list {
+    width: 99%;
+    margin: 1%;
+    padding: 2%;
+    text-align: center;
+}
+
+.que_list > table {
+    width:96%;
+    border: 1px;
+}
+
+.que_list > table > thead{
+    background-color: #1DC1E9;
+    color: white;
+}
+.que_list > table tr {
+    height: 40px;
+}
+
+.que_list > table > tbody > tr:nth-child(even){
+    background-color: lightgray;
+}
