@@ -17,7 +17,6 @@
     overflow:hidden;
   }
   .loader-inner{
-    background-color:#007fff;
     height:100%;
     width:80px;
     -webkit-animation:animloader 2s linear infinite;

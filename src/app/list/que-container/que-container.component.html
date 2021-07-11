@@ -1,0 +1,23 @@
+<div>
+    <div *ngIf="isLoading">
+      <app-loader [msg]="msgLoader"
+      [loaderColor]="loaderColor"
+      ></app-loader>
+    </div>
+    <div *ngIf="isList">
+        <div class="qc-search-div">
+            <app-search [searchWord]="searchWord"
+              (search)="fetchwithSearchWrod($event)"
+            ></app-search>
+        </div>
+        <div *ngIf="isListLoading">
+          <app-loader [msg]="msgLoader"
+          [loaderColor]="listLoaderColor"
+          ></app-loader>
+        </div>
+        <div class="qc-list-div">
+          <app-list [queList]="queList"></app-list>
+        </div>
+    </div>
+</div>
+  
