@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Question } from './Question';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  @Input() queList = [{id:101, question: 'que1'}];
+  queKeys:string[] = ["ID", "Question"];
+  queId = 0;
+  sub:any = null;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    // this.queKeys = Object.keys(this.queList[0]);
+    
+  }
+
+  ngOnDestroy() {
+    if( this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
+
+  handleRowClick(id:string) {
+    // alert(this.router.url);
+    this.router.navigate(['questions', id]);
+  }
+
+  trackListById(index: number, question: any):string {
+    return question.id;
   }
 
 }

@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class LoaderComponent implements OnInit {
 
   @Input() msg = 'Loading...';
-
+  @Input() loaderColor = "#007fff";
   constructor() { }
 
   ngOnInit(): void {

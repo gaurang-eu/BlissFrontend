@@ -1,1 +1,15 @@
-<p>list works!</p>
+<div class="que_list">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let key of queKeys">{{key}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of queList; trackBy:trackListById" (click)="handleRowClick(i.id + '')" >
+                <td>{{i.id}}</td>
+                <td>{{i.question}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

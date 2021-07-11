@@ -44,7 +44,7 @@ export class HealthCheckComponent implements OnInit {
   }
 
   redirect() {
-    this.router.navigate(['list']);
+    this.router.navigate(['questions']);
   }
 
   retryHealthCheck() {
