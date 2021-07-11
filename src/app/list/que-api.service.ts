@@ -28,7 +28,20 @@ export class QueApiService {
     let url = apiUrl + this.constants.QUE_LIST_EP;
     if(id && typeof id === 'number' && id > 0) {
       url = url + "/" + id;
+    } else {
+      url = url + "/0";
     }
     return this.http.get<{status:number,body: Question}>(url, {observe: 'response'}).pipe(retry(1)) ;
+  }
+
+  putVote(id:number, reqBody: {}): Observable<HttpResponse<{status:number, body: any}>> {
+    let apiUrl = environment.api_url;
+    let url = apiUrl + this.constants.QUE_LIST_EP;
+    if(id && typeof id === 'number' && id > 0) {
+      url = url + "/" + id;
+    } else {
+      url = url + "/0";
+    }
+    return this.http.put<{status:number, body: any}>(url, reqBody, {observe: 'response'}) ;
   }
 }

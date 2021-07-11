@@ -16,26 +16,27 @@ export class DetailsComponent implements OnInit {
   isDetails = false;
   isDetailsLoading = false;
   sub:Subscription;
+  subVoating:Subscription;
   queId = 0;
   
   constructor(private router: Router, 
     private ar: ActivatedRoute, private queApi: QueApiService) {
       this.sub = new Subscription();
+      this.subVoating = new Subscription();
      }
   
   ngOnInit(): void {
       this.sub = this.ar.params.subscribe(
       params =>  {
         this.queId = parseInt(params['id'] || 0);
-        console.log(this.queId);
-
         if (this.queId > 0) {
           this.fetchQuestion(this.queId);
         } else {
-          // alert('zeor');
+          //yet to implement 
+          // console.log('zeor or other');
         }
       }
-    )
+    );
   }
 
   handleBack() {
@@ -45,6 +46,32 @@ export class DetailsComponent implements OnInit {
     alert('zeor');
   }
 
+  handleVoating(choice: {votes:number, choice: string}) {
+    let choices = this.question.choices;
+    choices.map( (c:{votes:number, choice: string}) => {
+      if (c.choice == choice.choice){
+        c.votes = choice.votes;
+        return c;
+      } else {
+        return c;
+      }
+    });
+    // console.log("****** " ,this.question);
+    this.subVoating = this.queApi.putVote(this.queId, this.question).subscribe(
+      res => {
+        if (res.status === 201) {
+          // Mock API is not actually change the votes
+          this.question = res.body;
+        } else {
+          // yet to finish 
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
   ngOnDestroy() {
     if(this.sub){
       this.sub.unsubscribe();
@@ -52,14 +79,13 @@ export class DetailsComponent implements OnInit {
   }
 
   fetchQuestion(queId:number) {
-    console.log("fetchQuestions");
+    // console.log("fetchQuestions");
     this.showDetailsLoading();
     if(this.sub){
       this.sub.unsubscribe();
     }
     this.sub = this.queApi.getQueDetails(queId).subscribe(
       res => {
-        console.log(res.body);
         this.question = res.body
         this.showDetails();
       },

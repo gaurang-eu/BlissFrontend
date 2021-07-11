@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-choice',
@@ -7,14 +7,16 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class ChoiceComponent implements OnInit {
 
-  @Input() question = {choice:'', votes: 0};
+  @Input() choice = {choice:'', votes: 0};
+  @Output() voting: EventEmitter<{choice:string, votes:number}> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
   handleVote() {
-    alert('voted');
+    this.choice.votes++;
+    this.voting.emit(this.choice);
   }
 
 }

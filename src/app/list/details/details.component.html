@@ -16,7 +16,9 @@
         <div>
             <h3>Vote for your choice</h3>
             <ng-container *ngFor="let c of question.choices">
-                <app-choice [question]="c" ></app-choice>
+                <app-choice [choice]="c" 
+                (voting)="handleVoating($event)"
+                ></app-choice>
             </ng-container>
         </div>
     </div>
