@@ -44,4 +44,11 @@ export class QueApiService {
     }
     return this.http.put<{status:number, body: any}>(url, reqBody, {observe: 'response'}) ;
   }
+
+  postShare(reqBody: {destination_email: string, content_url: string}): Observable<HttpResponse<{status:number, body: any}>> {
+    let apiUrl = environment.api_url;
+    let url = apiUrl + this.constants.SHARE_EP;
+    return this.http.post<{status:number, body: any}>(url, reqBody, {observe: 'response'}) ;
+  }
+
 }
