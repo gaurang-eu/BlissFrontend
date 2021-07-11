@@ -6,7 +6,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let i of queList">
+            <tr *ngFor="let i of queList; trackBy:trackListById" (click)="handleRowClick(i.id + '')" >
                 <td>{{i.id}}</td>
                 <td>{{i.question}}</td>
             </tr>

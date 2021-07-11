@@ -6,18 +6,22 @@ import { ListComponent } from './list.component';
 import { QueContainerComponent } from './que-container/que-container.component';
 import { DetailsComponent } from './details/details.component';
 import { SharedModule } from '../shared/shared.module';
+import { SearchComponent } from './search/search.component';
 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ListComponent,
     QueContainerComponent,
-    DetailsComponent
+    DetailsComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
     ListRoutingModule,
-    SharedModule
+    SharedModule, 
+    FormsModule
   ]
 })
 export class ListModule { }
