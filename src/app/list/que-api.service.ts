@@ -22,4 +22,13 @@ export class QueApiService {
     }
     return this.http.get<{status:number,body: Array<Question>}>(url, {observe: 'response'}).pipe(retry(1)) ;
   }
+
+  getQueDetails(id:number): Observable<HttpResponse<{status:number, body: Question}>> {
+    let apiUrl = environment.api_url;
+    let url = apiUrl + this.constants.QUE_LIST_EP;
+    if(id && typeof id === 'number' && id > 0) {
+      url = url + "/" + id;
+    }
+    return this.http.get<{status:number,body: Question}>(url, {observe: 'response'}).pipe(retry(1)) ;
+  }
 }

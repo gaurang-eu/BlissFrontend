@@ -1,1 +1,23 @@
-<p>details works!</p>
+<div class="details-container">
+    <div class="btn-div">
+        <div class="back-div" >
+            <img  src="../../../assets/img/back.png" alt="Back to list" (click)="handleBack()"/>
+        </div>
+        <div class="share-div">
+            <img src="../../../assets/img/share.png" alt="Share Question"/>
+        </div>
+    </div>
+    <div class="details-div">
+        <div class="details-img-div">
+            <img [src]="question.image_url" alt="Image" />
+        </div>
+        <h2>{{question.question}}</h2>
+        <h4>{{question.published_at | date:'dd-MMM-yyyy'}}</h4>
+        <div>
+            <h3>Vote for your choice</h3>
+            <ng-container *ngFor="let c of question.choices">
+                <app-choice [question]="c" ></app-choice>
+            </ng-container>
+        </div>
+    </div>
+</div>

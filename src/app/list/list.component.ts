@@ -28,7 +28,7 @@ export class ListComponent implements OnInit {
   }
 
   handleRowClick(id:string) {
-    // alert(this.router.url);
+    
     this.router.navigate(['questions', id]);
   }
 

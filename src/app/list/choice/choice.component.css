@@ -1,0 +1,38 @@
+.choice-div {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 10px;
+    margin: 2% auto;
+}
+
+.choice-div > header {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    margin: 2% auto;
+}
+.choice-div > section {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    margin: 2% auto;
+}
+.choice-div > footer {
+    width: 100%;
+    text-align: center;
+    padding: 1%;
+    margin: 2% auto;
+}
+
+.choice-div > footer > button {
+    margin: 0 auto;
+    background-color: mediumvioletred;
+    color: white;
+    font-weight: 600;
+    padding: 1% 5%;
+}
+.choice-div > footer > button:active {
+    background-color: violet;
+} 
