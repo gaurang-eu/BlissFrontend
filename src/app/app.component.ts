@@ -1,7 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FindValueSubscriber } from 'rxjs/internal/operators/find';
 import { environment } from 'src/environments/environment';
 import { InternetCheckService } from './internet-check.service';
 
