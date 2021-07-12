@@ -1,37 +1,23 @@
 <style>
-
   .toolbar {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
+    height: auto;
+    padding: 16px 8px;
     display: flex;
     align-items: center;
-    background-color: #169EBF;
+    background-color: #169ebf;
     color: white;
     font-size: 20px;
-    font-family:fantasy;
+    font-family: fantasy;
     letter-spacing: 0.2em;
   }
 
   .toolbar img {
     margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
-
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
+    width: 50px;
   }
 
   .content {
@@ -44,35 +30,49 @@
   }
 
   /* Responsive Styles */
+  @media screen and (max-width: 1200px) {
+    .toolbar {
+      padding: 14px 7px;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+    }
+    .toolbar img {
+      margin: 0 12px;
+      width: 45px;
+    }
+  }
+
   @media screen and (max-width: 767px) {
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
+    .toolbar {
+      padding: 10px 5px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+    }
+    .toolbar img {
+      margin: 0 10px;
+      width: 40px;
     }
   }
 
   @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
+    .toolbar {
+      padding: 7px 4px;
+      font-size: 12px;
+    }
+    .toolbar img {
+      margin: 0 7px;
+      width: 30px;
     }
   }
 </style>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="../assets/img/logo_192.png"
-  />
+  <img alt="Angular Logo" src="../assets/img/logo_192.png" />
   <span>Bliss Applications Frontend Assessment by Gaurang Patel</span>
-  <span> : {{env}}</span>
+  <span> : {{ env }}</span>
 </div>
 
-<div class="content" role="main">
-
-
-</div>
+<div class="content" role="main"></div>
 
 <router-outlet></router-outlet>
