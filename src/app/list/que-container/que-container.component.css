@@ -29,6 +29,14 @@
 .btn-next:disabled {
     background-color: gray;
 }
+.btn-pre:active {
+    background-color: darkred;
+    font-size: larger;
+}
+.btn-next:active {
+    background-color: darkred;
+    font-size: larger;
+}
 footer {
     height: 50px;
 }
