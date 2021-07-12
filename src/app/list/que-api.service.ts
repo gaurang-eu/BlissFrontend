@@ -14,11 +14,11 @@ export class QueApiService {
   constructor(private http: HttpClient, 
     private constants: ConstantsService) { }
 
-  getQueList(searchWord:string): Observable<HttpResponse<{status:number, body: Array<Question>}>> {
+  getQueList(endPoint: string): Observable<HttpResponse<{status:number, body: Array<Question>}>> {
     let apiUrl = environment.api_url;
     let url = apiUrl + this.constants.QUE_LIST_EP;
-    if(searchWord) {
-      url = url + "?filter=" + searchWord;
+    if(endPoint) {
+      url = url + endPoint;
     }
     return this.http.get<{status:number,body: Array<Question>}>(url, {observe: 'response'}).pipe(retry(1)) ;
   }

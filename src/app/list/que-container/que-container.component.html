@@ -15,9 +15,16 @@
           [loaderColor]="listLoaderColor"
           ></app-loader>
         </div>
-        <div class="qc-list-div">
+        <div class="qc-list-div" *ngIf="!isListLoading">
           <app-list [queList]="queList"></app-list>
         </div>
     </div>
+    <div *ngIf="isList" class="pagination-div">
+      <button [disabled]="offset <= 1" (click)="handlePre()" class="btn-pre">Previous</button>
+      <button [disabled]="!flagMore" (click)="handleNext()" class="btn-next">Next</button>
+    </div>
+    <footer>
+
+    </footer>
 </div>
   
