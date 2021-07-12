@@ -9,13 +9,15 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchComponent } from './search/search.component';
 
 import { FormsModule } from '@angular/forms';
+import { ChoiceComponent } from './choice/choice.component';
 
 @NgModule({
   declarations: [
     ListComponent,
     QueContainerComponent,
     DetailsComponent,
-    SearchComponent
+    SearchComponent,
+    ChoiceComponent
   ],
   imports: [
     CommonModule,

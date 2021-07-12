@@ -14,12 +14,41 @@ export class QueApiService {
   constructor(private http: HttpClient, 
     private constants: ConstantsService) { }
 
-  getQueList(searchWord:string): Observable<HttpResponse<{status:number, body: Array<Question>}>> {
+  getQueList(endPoint: string): Observable<HttpResponse<{status:number, body: Array<Question>}>> {
     let apiUrl = environment.api_url;
     let url = apiUrl + this.constants.QUE_LIST_EP;
-    if(searchWord) {
-      url = url + "?filter=" + searchWord;
+    if(endPoint) {
+      url = url + endPoint;
     }
     return this.http.get<{status:number,body: Array<Question>}>(url, {observe: 'response'}).pipe(retry(1)) ;
   }
+
+  getQueDetails(id:number): Observable<HttpResponse<{status:number, body: Question}>> {
+    let apiUrl = environment.api_url;
+    let url = apiUrl + this.constants.QUE_LIST_EP;
+    if(id && typeof id === 'number' && id > 0) {
+      url = url + "/" + id;
+    } else {
+      url = url + "/0";
+    }
+    return this.http.get<{status:number,body: Question}>(url, {observe: 'response'}).pipe(retry(1)) ;
+  }
+
+  putVote(id:number, reqBody: {}): Observable<HttpResponse<{status:number, body: any}>> {
+    let apiUrl = environment.api_url;
+    let url = apiUrl + this.constants.QUE_LIST_EP;
+    if(id && typeof id === 'number' && id > 0) {
+      url = url + "/" + id;
+    } else {
+      url = url + "/0";
+    }
+    return this.http.put<{status:number, body: any}>(url, reqBody, {observe: 'response'}) ;
+  }
+
+  postShare(reqBody: {destination_email: string, content_url: string}): Observable<HttpResponse<{status:number, body: any}>> {
+    let apiUrl = environment.api_url;
+    let url = apiUrl + this.constants.SHARE_EP;
+    return this.http.post<{status:number, body: any}>(url, reqBody, {observe: 'response'}) ;
+  }
+
 }

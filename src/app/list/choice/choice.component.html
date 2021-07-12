@@ -1,0 +1,11 @@
+<div class="choice-div">
+    <header>
+        {{choice.choice}}
+    </header>
+    <section>
+        {{'Votes : ' + choice.votes}}
+    </section>
+    <footer>
+        <button (click)="handleVote()">Vote</button>
+    </footer>
+</div>
