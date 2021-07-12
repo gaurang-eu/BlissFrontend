@@ -25,19 +25,46 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
+  getQueryParams(path: string) {
+    const full = path.split('?');
+    if(full && full[1]) {
+      // const params = full[1].split('&');
+      // if (params && params.length > 0){
+      //   const paramObj =new Object();
+      //   for(let i=0; i< params.length; i++){
+      //     const keyvalue = params[i];
+      //     const key = keyvalue[0];
+      //     const val = keyvalue[1];
+      //     Object.defineProperty(paramObj,key,val); 
+      //   }
+      //   return paramObj;
+      // } else {
+      //   return null;
+      // }
+      return true;
+    } else {
+      return null;
+    }
+  }
   redirect(isNet:boolean) {
     if(isNet===false){
       this.router.navigate(['nonet']);
     } 
     else {
-      // console.log("loc = " +this.loc.path() );
+      const isparamObj = this.getQueryParams(this.loc.path());
+      // console.log("loc = ", paramObj);
       if(this.router.url.endsWith('nonet')) {
         this.router.navigate(['health']);
       } else {
         if(this.loc.path() === '') {
           this.router.navigate(['health']);
         } else {
-          this.router.navigate([this.loc.path()]);
+          if(isparamObj){
+            // this.router.navigate(['questions'], { queryParams: paramObj);
+            this.router.navigateByUrl(this.loc.path());
+          } else {
+            this.router.navigate(['questions']);
+          }
         }
       }
     }

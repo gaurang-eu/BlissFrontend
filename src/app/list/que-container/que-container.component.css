@@ -2,3 +2,33 @@
     width: 60%;
     margin: 0px auto;
 } 
+.pagination-div {
+    width: 80%;
+    margin: 0 auto 100px;
+    text-align: center;
+}
+
+.btn-pre {
+    padding: 0.5% 1%;
+    font-size: large;
+    float: left;
+    background-color: crimson;
+    color: white;
+}
+
+.btn-next {
+    padding: 0.5% 1%;
+    font-size: large;
+    float: right;
+    background-color: crimson;
+    color: white;
+}
+.btn-pre:disabled {
+    background-color: gray;
+}
+.btn-next:disabled {
+    background-color: gray;
+}
+footer {
+    height: 50px;
+}
